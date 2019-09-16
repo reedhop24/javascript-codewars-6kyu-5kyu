@@ -1,0 +1,26 @@
+// Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+
+// Examples
+// pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
+// pigIt('Hello world !');     // elloHay orldway !
+
+function pigIt(str){
+  var empty = [];
+  var arr = str.split(" ");
+  for(var i = 0; i < arr.length; i++) {
+    for(var j = 0; j < arr[i].length; j++) {
+      if(j == 0) {
+        var x = arr[i].replace(arr[i][j], '');
+        if(arr[i].match(/[a-z]/i)){
+          x += arr[i][j] + "ay"
+          empty.push(x);
+        }
+        else{
+          x += arr[i][j];
+          empty.push(x);
+        }
+      }
+    }
+  }
+  return empty.join(" ");
+}
