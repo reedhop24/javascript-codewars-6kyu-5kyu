@@ -1,0 +1,22 @@
+function beggars(values, n){
+  var empty = [];
+  
+  // initialize empty elements in empty element array
+  for(var j = 0; j < n; j++) {
+    empty.push(0);
+  }
+  
+  // if on the matching index, add the element to that index of the empty array
+  if(n > 0) {
+  var count = 0;
+  for(var i = 0; i < values.length; i++) {
+    empty[count] += values[i];
+    count++;
+    if(count == n) {
+      count = 0;
+    }
+  }
+    return empty;
+ }
+  return [];
+}
