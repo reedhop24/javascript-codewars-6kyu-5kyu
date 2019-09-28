@@ -9,31 +9,22 @@
 // All letters will be lowercase and all inputs will be valid.
 
 function high(x){
- var result = [];
  var empty = [];
-  var numbers = {"a" : 1, "b" : 2, "c" : 3, "d" : 4, "e" : 5, "f" : 6, "g" : 7, "h" : 8, "i" : 9, "j" : 10, "k" : 11, "l" : 12, "m" : 13, "n" : 14, "o" : 15, "p" : 16, "q" : 17, "r" : 18, "s" : 19, "t" : 20, "u" : 21, "v" : 22, "w" : 23, "x" : 24, "y" : 25, "z" : 26};
-  var arr = x.split(" ");
+ var numbers = {"a" : 1, "b" : 2, "c" : 3, "d" : 4, "e" : 5, "f" : 6, "g" : 7, "h" : 8, "i" : 9, "j" : 10, "k" : 11, "l" : 12, "m" : 13, "n" : 14, "o" : 15, "p" : 16, "q" : 17, "r" : 18, "s" : 19, "t" : 20, "u" : 21, "v" : 22, "w" : 23, "x" : 24, "y" : 25, "z" : 26};
+ var arr = x.split(" ");
   for(var i = 0;i < arr.length; i++) {
    var num = 0;
    for(var j = 0; j < arr[i].length; j++) {
     if (arr[i][j] in numbers)
-//     console.log(parseInt(numbers[arr[i][j]]));
     num += (parseInt(numbers[arr[i][j]]));
      }
     empty.push(num);
   }
-  console.log(empty);
- var largest = (Math.max.apply(null, empty));
- 
- for(var x = 0; x < empty.length; x++) {
-    console.log(largest);
-    if(largest === empty[x]) {
-     var int = x;
+  var largest = Math.max.apply(null, empty);
+  var index = empty.indexOf(largest);
+  for(var i = 0; i < arr.length; i++) {
+    if(i == index) {
+      return arr[i];
     }
   }
-  for(var y = 0; y < arr.length; y++) {
-    if(int === y) {
-      return arr[y];
-    }
   }
-}
