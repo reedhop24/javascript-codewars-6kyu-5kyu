@@ -1,0 +1,29 @@
+function gap(g, m, n) {
+    
+ function isPrime(num) {
+  for(let i = 2, s = Math.sqrt(num); i <= s; i++){
+        if(num % i === 0){
+          return false; 
+          }
+      }
+    return num > 1;
+}
+    
+    function primeBetween (num, num2){
+      for(var i = num+1; i < num2; i++) {
+        if(isPrime(i)) return false;
+      }
+      return true;
+    }
+    
+    for(var i = m; i < n; i++) {
+      if(isPrime(i) == true) {
+        var nextG = i + g;
+        if(isPrime(nextG) == true && primeBetween(i, nextG) == true) {
+          return ([i, nextG]);
+        }
+      }
+   }
+   
+   return null;
+}
