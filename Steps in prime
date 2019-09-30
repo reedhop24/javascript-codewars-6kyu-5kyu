@@ -1,0 +1,32 @@
+// We will write a function step with parameters:
+
+// g (integer >= 2) which indicates the step we are looking for,
+
+// m (integer >= 2) which gives the start of the search (m inclusive),
+
+// n (integer >= m) which gives the end of the search (n inclusive)
+
+// In the example above step(2, 2, 50) will return [3, 5] which is the first pair between 2 and 50 with a 2-steps.
+
+function step(g, m, n) {
+//function to check if prime
+    function isPrime(num) {
+      for(var i = 2; i < num; i++) {
+        if(num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+    
+  //loop runs from designated start to designated end, when it hits a prime it adds g then check if that int is prime
+    for(var i = m; i < n; i++) {
+      if(isPrime(i) == true) {
+        var nextG = i + g;
+        if(isPrime(nextG) == true) {
+          return [i, nextG];
+        }
+      }
+   }
+   return null;
+}
