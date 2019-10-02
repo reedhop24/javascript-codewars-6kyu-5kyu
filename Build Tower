@@ -1,0 +1,22 @@
+// Build Tower
+// Build Tower by the following given argument:
+// number of floors (integer and always greater than 0).
+
+// Tower block is represented as *
+
+// [
+//   '  *  ', 
+//   ' *** ', 
+//   '*****'
+// ]
+
+function towerBuilder(nFloors) {
+  var empty = [];
+  var count = 1;
+  for(var i = 1; i <= nFloors; i++) {
+    var spaces = nFloors - i;
+    empty.push(' '.repeat(spaces) + '*'.repeat(count) + ' '.repeat(spaces));
+    count = count + 2;
+  }
+  return empty;
+}
