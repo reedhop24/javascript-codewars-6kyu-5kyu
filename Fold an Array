@@ -1,0 +1,30 @@
+// As you see, if the count of numbers is odd, the middle number will stay. Otherwise the fold-point is between the middle-numbers, 
+// so all numbers would be added in a way.
+
+// The array will always contain numbers and will never be null. The parameter runs will always be a positive integer greater than 0 and 
+// says how many runs of folding your method has to do.
+
+// If an array with one element is folded, it stays as the same array.
+
+// The input array should not be modified!
+
+function foldArray(array, runs)
+{
+ var count = 0;
+ while (count < runs) {
+  var len = array.length; 
+  var empty = [];
+  for(var i = 0; i < array.length/2; i++) {
+    len--;
+    if(i !== len) {
+    empty.push(array[i] + array[len]);
+    }
+    else{
+      empty.push(array[i]);
+    }
+  }
+  array = empty;
+  count++;
+  }
+  return empty;
+}
