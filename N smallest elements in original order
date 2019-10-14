@@ -1,0 +1,25 @@
+// Your task is to write a function that does just what the title suggests (so, fair warning, be aware that you are not getting out of it 
+// just throwing a lame bas sorting method there) with an array/list/vector of integers and the expected number n of smallest elements 
+// to return.
+
+// Also:
+
+// the number of elements to be returned cannot be higher than the array/list/vector length;
+// elements can be duplicated;
+
+function firstNSmallest(array, n){
+  var sort = array.concat().sort((a, b) => {return a -b});
+  var empty = [];
+  var final = [];
+  for(var i = 0; i < n; i++) {
+    empty.push(sort[i]);
+  }
+
+  for(var j = 0; j < array.length; j++) {
+     if(empty.includes(array[j])) {
+       final.push(array[j]);
+       empty.splice(empty.indexOf(array[j]), 1);
+     }
+  }
+  return final;
+}
