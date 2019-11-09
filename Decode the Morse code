@@ -1,0 +1,19 @@
+// Your task is to implement a function that would take the morse code as input and return a decoded human-readable string.
+
+// For example:
+
+// decodeMorse('.... . -.--   .--- ..- -.. .')
+//should return "HEY JUDE"
+
+decodeMorse = function(morseCode){
+  morseCode = morseCode.split(' ').map((x) => {return MORSE_CODE[x]});
+  for(var i = 0; i < morseCode.length; i++) {
+    if(morseCode[i] === undefined && morseCode[i+1] === undefined) {
+      morseCode.splice(i, 1, ' ');
+      morseCode.splice(i+1, 1);
+    } else if (morseCode[i] === undefined) {
+      morseCode.splice(i,1);
+    }
+  }
+  return morseCode.join('').trim();
+}
