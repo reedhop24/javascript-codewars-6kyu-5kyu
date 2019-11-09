@@ -1,0 +1,30 @@
+// Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent 
+// number, return the largest number among them.
+
+// Note: no empty arrays will be given.
+
+// Examples
+// [12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  12
+// [12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
+// [12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3
+
+function highestRank(arr){
+ var comparator = (a, b) => {
+   if(a[0] === b[0]) {
+     return a[1] > b[1] ? -1 : a[1] < b[1] ? 1 : 0
+   }
+   return b[0] - a[0];
+ }
+ arr.sort((a,b) => {return a - b});
+ let count = 0;
+ let result = [];
+ for(var i = 0; i < arr.length; i++) {
+   if(arr[i] === arr[i+1]) {
+     count++;
+   } else {
+     result.push([count, arr[i]]);
+     count = 0;
+   }
+ }
+ return result.sort(comparator)[0][1];
+}
