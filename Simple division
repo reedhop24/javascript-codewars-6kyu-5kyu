@@ -1,0 +1,28 @@
+// In this Kata, you will be given two numbers, a and b, and your task is to determine if the first number a is divisible by all 
+// the prime factors of the second number b. For example: solve(15,12) = False because 15 is not divisible by all the prime factors of 
+// 12 (which include2).
+
+// See test cases for more examples.
+
+// Good luck!
+
+function solve(a,b){
+  
+  var isPrime = num => {
+    for(var i = 2, s = Math.sqrt(num); i <= s; i++){
+      if(num % i === 0) return false;
+    } return num > 1;
+  }
+  
+  let count = 0;
+  
+  for(var i = 0; i <= Math.floor(Math.sqrt(b)); i++){
+    if(isPrime(i) === true && b % i === 0){
+      count++;
+      if(a % i !== 0) return false;
+    }
+  }
+  
+  return count > 0 ? true: false;
+  
+}
