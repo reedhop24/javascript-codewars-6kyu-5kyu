@@ -12,11 +12,7 @@ function bingo(ticket, win){
   let miniWin = 0;
   
   for(var i = 0, l = ticket.length; i < l; i++){
-    for(var j = 0, k = ticket[i][0].length; j < k; j++){
-      if(ticket[i][0][j].charCodeAt() === ticket[i][1]){
-        miniWin++;
-      }
-    }
+    ticket[i][0].split('').forEach((x) => {if(x.charCodeAt() === ticket[i][1]) miniWin++})
   }
   
   return miniWin >= win ? 'Winner!' : 'Loser!';
