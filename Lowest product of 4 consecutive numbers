@@ -1,0 +1,18 @@
+// Create a function that returns the lowest product of 4 consecutive digits in a number given as a string.
+
+// This should only work if the number has 4 digits or more. If not, return "Number is too small".
+
+// Example
+// lowestProduct("123456789")--> 24 (1x2x3x4)
+// lowestProduct("35") --> "Number is too small"
+
+function lowestProduct(input) {
+  if(input.length > 4){
+    let products = [];
+    for(let i = 0, l = input.length - 3; i < l; i++) {
+      products.push(parseInt(input[i]*input[i+1]*input[i+2]*input[i+3]));
+    }
+    return Math.min(...products);
+  }
+  return "Number is too small"
+}
