@@ -1,0 +1,24 @@
+// In this Kata, you will be trained on array indexing and basic prime number operations. Array indices are zero-based; this means that 
+// the first element of an array is at index 0.
+
+// You will be given an integer array and your task is to return the sum of elements occupying prime-numbered indices.
+
+// To make this interesting, array lengths in random tests will have up to 5000 elements.
+
+function total(arr){
+   var sum = 0;
+   
+   var isPrime = num => {
+     for(let i = 2, s = Math.sqrt(num); i <= s; i++) {
+       if(num % i === 0) return false;
+     } return num > 1;
+   }
+   
+   for(let i = 0, l = arr.length; i < l; i++) {
+     if(isPrime(i) === true) {
+       sum += arr[i];
+     }
+   } 
+   
+   return sum;
+};
