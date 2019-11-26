@@ -1,0 +1,20 @@
+// write a function that returns the sum of all values, including the root. Absence of a node will be indicated with a null value.
+
+// Examples:
+
+// 10
+// | \
+// 1  2
+// => 13
+
+// 1
+// | \
+// 0  0
+//     \
+//      2
+// => 3
+
+// return the sum of all values in the tree, including the root
+function sumTheTreeValues(root){
+  return !root ? 0 : root.value + sumTheTreeValues(root.left) + sumTheTreeValues(root.right);
+}
