@@ -1,0 +1,29 @@
+// Input/Output
+// [input] string cell1
+
+// [input] string cell2
+
+// [output] a boolean value
+
+// true if both cells have the same color, false otherwise.
+
+function chessBoardCellColor(cell1, cell2) {
+
+  const stack1 = ['A', 'C', 'E', 'G'];
+  const stack2 = ['B', 'D', 'F', 'H'];
+  
+  let both = false;
+  if(cell1[1] % 2 === 0 && cell2[1] % 2 === 0) {
+    both = true;
+  } else if(cell1[1] % 2 !== 0 && cell2[1] % 2 !== 0) {
+    both = true;
+  }
+  
+  if(stack1.includes(cell1[0]) && stack2.includes(cell2[0]) || stack1.includes(cell2[0]) && stack2.includes(cell1[0])) {
+    if(both === false) return true;
+  } else if(stack1.includes(cell1[0]) && stack1.includes(cell2[0]) || stack2.includes(cell2[0]) && stack2.includes(cell1[0])){
+      if(both === true) return true;
+  }
+  return false;
+  
+}
