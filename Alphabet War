@@ -1,0 +1,36 @@
+function alphabetWar(fight)
+{
+  
+  var left = {
+    'w' : 4,
+    'p' : 3,
+    'b' : 2,
+    's' : 1
+  }
+  
+  var right = {
+    'm' : 4,
+    'q' : 3,
+    'd' : 2,
+    'z' : 1
+  }
+  
+  let arr = fight.split('');
+  let rightBattle = 0;
+  let leftBattle = 0;
+  
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i] !== '*' && arr[i+1] !== '*' && arr[i-1] !== '*'){
+      if(right.hasOwnProperty(arr[i])){
+        rightBattle += right[arr[i]];
+      }
+      if(left.hasOwnProperty(arr[i])){
+        leftBattle += left[arr[i]];
+      }
+    }
+  }
+  
+  return rightBattle > leftBattle ? 'Right side wins!':
+         leftBattle > rightBattle ? 'Left side wins!' :
+         "Let's fight again!";
+}
