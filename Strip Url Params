@@ -1,0 +1,22 @@
+// Complete the method so that it does the following:
+// Removes any duplicate query string parameters from the url (the first occurence should be kept)
+// Removes any query string parameters specified within the 2nd argument (optional array)
+// Examples:
+// stripUrlParams('www.codewars.com?a=1&b=2&a=2') === 'www.codewars.com?a=1&b=2'
+// stripUrlParams('www.codewars.com?a=1&b=2&a=2', ['b']) === 'www.codewars.com?a=1'
+// stripUrlParams('www.codewars.com', ['b']) === 'www.codewars.com'
+
+function stripUrlParams(url, paramsToStrip=[]){
+    let arr = url.split('?');
+    if(arr[1]) {
+      let hash = new Map();
+      let unique = [];
+      let strings = arr[1].split('&');
+      for(let i = 0, l = strings.length; i < l; i++){
+        if(!hash.has(strings[i][0]) && !paramsToStrip.includes(strings[i][0])) unique.push(strings[i]);
+        hash.set(strings[i][0]);
+      }
+      return unique.length !== 0 ? arr[0] + '?' + unique.join('&') : arr[0];
+    }
+    return arr[0];
+}
